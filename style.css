@@ -1,4 +1,4 @@
-/* CSS Variables */
+/* ================= VARIABLES ================= */
 :root {
   --background-color: #f5f6fa;
   --text-color: #333;
@@ -12,7 +12,8 @@
   --hover-transform: translateY(-5px);
 }
 
-.dark-mode {
+/* Dark Mode Overrides */
+body.dark-mode {
   --background-color: #1a1a2e;
   --text-color: #f5f6fa;
   --sidebar-bg-1: #0e0e1a;
@@ -24,15 +25,15 @@
   --card-shadow: 0 2px 5px rgba(255,255,255,0.1);
 }
 
-/* General */
+/* ================= GENERAL ================= */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: var(--background-color);
   color: var(--text-color);
   display: flex;
-  transition: background 0.5s ease, color 0.5s ease;
   min-height: 100vh;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Sidebar */
@@ -49,11 +50,6 @@ body {
   flex-direction: column;
   align-items: center;
   box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-  transition: background 0.5s ease;
-}
-
-.sidebar .profile {
-  text-align: center;
 }
 
 .sidebar .profile img {
@@ -61,10 +57,20 @@ body {
   height: 150px;
   border-radius: 50%;
   border: 3px solid white;
-  margin-bottom: 10px;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: 10px;
+  color: white;
+}
+
+/* Sidebar Nav */
 .sidebar nav {
   margin-top: 30px;
   width: 100%;
@@ -83,28 +89,13 @@ body {
   background: rgba(255,255,255,0.2);
 }
 
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  margin-top: 20px;
-  color: white;
-}
-
-/* Main Content */
+/* Main */
 main {
   margin-left: 250px;
   padding: 40px;
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
-#p1{
-  margin-left: 50px;
-}
-/* Hero Section */
 .hero {
   background: var(--card-bg);
   padding: 40px;
@@ -112,12 +103,12 @@ main {
   text-align: center;
   margin-bottom: 30px;
   box-shadow: var(--card-shadow);
-  transition: background 0.5s ease;
+  transition: background 0.4s ease;
 }
 
 .hero h1 {
-  margin-bottom: 15px;
   font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -131,23 +122,17 @@ main {
   transition: background 0.3s ease;
 }
 
-.btn:hover {
-  background: var(--btn-hover-bg);
-}
+.btn:hover { background: var(--btn-hover-bg); }
 
 /* Sections */
-section {
-  margin-bottom: 50px;
-}
-
+section { margin-bottom: 50px; }
 h2 {
-  margin-bottom: 15px;
   border-left: 5px solid var(--highlight-color);
   padding-left: 10px;
   font-family: 'Roboto Mono', monospace;
 }
 
-/* Cards for Projects */
+/* Cards */
 .cards {
   display: flex;
   gap: 20px;
@@ -160,43 +145,23 @@ h2 {
   border-radius: 10px;
   flex: 1 1 calc(33% - 20px);
   box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, background 0.5s ease;
+  transition: transform 0.3s ease, background 0.4s ease;
 }
 
-.card:hover {
-  transform: var(--hover-transform);
-}
+.card:hover { transform: var(--hover-transform); }
 
-.card h3 a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.5s ease;
-}
+.card h3 a { color: var(--text-color); text-decoration: none; }
 
-/* Blogs */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
+/* Blog list */
+ul { list-style: none; padding: 0; }
 ul li {
   background: var(--card-bg);
   margin-bottom: 10px;
   padding: 15px;
   border-radius: 5px;
   box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, background 0.5s ease;
 }
-
-ul li a {
-  text-decoration: none;
-  color: var(--text-color);
-  display: block;
-}
-
-ul li:hover {
-  transform: var(--hover-transform);
-}
+ul li a { color: var(--text-color); text-decoration: none; display: block; }
 
 /* Footer */
 footer {
@@ -204,168 +169,21 @@ footer {
   color: white;
   text-align: center;
   padding: 15px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   position: fixed;
   bottom: 0;
-  left: 300px;
+  left: 250px;
   right: 0;
 }
-
-footer .socials a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-footer .socials i {
-  margin-right: 8px;
-  font-size: 20px;
-}
-
-footer .socials a:hover {
-  text-decoration: underline;
-}
+footer .socials a { color: white; margin: 0 10px; }
 
 /* Responsive */
+.hamburger { display: none; font-size: 26px; background: none; border: none; color: white; cursor: pointer; }
+
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-  .sidebar {
-    position: relative;
-    width: 100%;
-    min-height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  .sidebar .profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  .sidebar .profile img {
-    width: 60px;
-    height: 60px;
-  }
-  .sidebar h2 {
-    display: none;
-  }
-  .sidebar nav {
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-    flex-grow: 1;
-  }
-  .sidebar nav a {
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-  }
-  .theme-toggle {
-    margin-top: 0;
-  }
-  main {
-    margin-left: 0;
-    padding: 20px;
-  }
-  .cards {
-    flex-direction: column;
-  }
-  .card {
-    flex: 1 1 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .sidebar .profile {
-    flex-direction: column;
-  }
-  .sidebar nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .sidebar nav a {
-    flex-basis: 50%;
-  }
-}
-/* انیمیشن ساده برای اسکرول */
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-section, .card, .hero {
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-}
-
-section:nth-child(1) { animation-delay: 0.1s; }
-section:nth-child(2) { animation-delay: 0.3s; }
-section:nth-child(3) { animation-delay: 0.5s; }
-section:nth-child(4) { animation-delay: 0.7s; }
-
-/* دکمه منوی همبرگری */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-/* موبایل */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    z-index: 1000;
-  }
-
-  .sidebar nav {
-    display: none;
-    flex-direction: column;
-    background: linear-gradient(135deg, var(--sidebar-bg-1), var(--sidebar-bg-2));
-    position: absolute;
-    top: 60px; left: 0;
-    width: 100%;
-    padding: 15px;
-    border-radius: 0 0 10px 10px;
-  }
-
-  .sidebar nav.active {
-    display: flex;
-    animation: fadeUp 0.4s ease forwards;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  main {
-    margin: 0;
-    padding-top: 80px;
-  }
-
-  footer {
-    position: relative;
-    left: 0;
-    padding: 20px;
-  }
+  .sidebar { width: 100%; height: auto; flex-direction: row; justify-content: space-between; }
+  .sidebar nav { display: none; flex-direction: column; background: linear-gradient(135deg, var(--sidebar-bg-1), var(--sidebar-bg-2)); position: absolute; top: 60px; left: 0; width: 100%; }
+  .sidebar nav.active { display: flex; }
+  .hamburger { display: block; }
+  main { margin-left: 0; padding: 20px; }
+  footer { left: 0; position: relative; }
 }
