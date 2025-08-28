@@ -1,4 +1,3 @@
-
 :root {
   --background-color: #f5f6fa;
   --text-color: #333;
@@ -25,7 +24,6 @@ body.dark-mode {
   --card-shadow: 0 2px 5px rgba(255,255,255,0.1);
 }
 
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -50,6 +48,12 @@ body {
   flex-direction: column;
   align-items: center;
   box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sidebar .profile img {
@@ -188,27 +192,50 @@ footer .socials a {
   cursor: pointer; 
 }
 
- /* RESPONSIVE  */
+/* RESPONSIVE */
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .card { flex: 1 1 calc(50% - 20px); } /* دو ستونه */
+  .card { flex: 1 1 calc(50% - 20px); }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
   .sidebar {
     width: 100%;
     height: auto;
+    position: relative;
+    padding: 10px 15px;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 15px;
-    position: relative;
+    align-items: center;
+  }
+
+  .sidebar .profile {
+    flex-direction: row;
+    align-items: center;
   }
 
   .sidebar .profile img {
     width: 60px;
     height: 60px;
+    margin-right: 15px;
+    border: 2px solid white;
+  }
+  
+  .sidebar h2 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .theme-toggle {
+    margin: 0;
+    font-size: 20px;
   }
 
   .sidebar nav {
@@ -216,28 +243,38 @@ footer .socials a {
     flex-direction: column;
     background: linear-gradient(135deg, var(--sidebar-bg-1), var(--sidebar-bg-2));
     position: absolute;
-    top: 60px;
+    top: 80px;
     left: 0;
     width: 100%;
     z-index: 1000;
   }
 
-  .sidebar nav.active { display: flex; }
+  .sidebar nav.active { 
+    display: flex;
+  }
 
-  .hamburger { display: block; }
+  .hamburger { 
+    display: block; 
+  }
 
   main { 
     margin-left: 0; 
     padding: 20px; 
   }
 
-  .cards { flex-direction: column; }
+  .cards { 
+    flex-direction: column; 
+  }
 
-  .card { flex: 1 1 100%; }
+  .card { 
+    flex: 1 1 100%; 
+  }
 
   footer {
-    position: relative;
+    position: static;
     left: 0;
+    right: 0;
+    border-radius: 0;
     margin-top: 20px;
   }
 }
