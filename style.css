@@ -1,4 +1,4 @@
-/* ================= VARIABLES ================= */
+
 :root {
   --background-color: #f5f6fa;
   --text-color: #333;
@@ -25,7 +25,7 @@ body.dark-mode {
   --card-shadow: 0 2px 5px rgba(255,255,255,0.1);
 }
 
-/* ================= GENERAL ================= */
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -89,7 +89,6 @@ body {
   background: rgba(255,255,255,0.2);
 }
 
-/* Main */
 main {
   margin-left: 250px;
   padding: 40px;
@@ -124,7 +123,6 @@ main {
 
 .btn:hover { background: var(--btn-hover-bg); }
 
-/* Sections */
 section { margin-bottom: 50px; }
 h2 {
   border-left: 5px solid var(--highlight-color);
@@ -132,7 +130,6 @@ h2 {
   font-family: 'Roboto Mono', monospace;
 }
 
-/* Cards */
 .cards {
   display: flex;
   gap: 20px;
@@ -152,7 +149,6 @@ h2 {
 
 .card h3 a { color: var(--text-color); text-decoration: none; }
 
-/* Blog list */
 ul { list-style: none; padding: 0; }
 ul li {
   background: var(--card-bg);
@@ -163,31 +159,85 @@ ul li {
 }
 ul li a { color: var(--text-color); text-decoration: none; display: block; }
 
-/* Footer */
 footer {
   background: #2b5876;
   color: white;
   text-align: center;
-  padding: 5px 15px;
-  line-height: 1.2;
+  padding: 10px 15px;
+  line-height: 1.4;
   position: fixed;
-  height: 70px;
   bottom: 0;
   left: 300px;
   right: 0;
-  border-top-left-radius:10px ;
+  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-footer .socials a { color: white; margin: 0 10px; }
+footer .socials a { 
+  color: white; 
+  margin: 0 8px; 
+  display: inline-block;
+}
 
-/* Responsive */
-.hamburger { display: none; font-size: 26px; background: none; border: none; color: white; cursor: pointer; }
+/* Hamburger Menu */
+.hamburger { 
+  display: none; 
+  font-size: 26px; 
+  background: none; 
+  border: none; 
+  color: white; 
+  cursor: pointer; 
+}
 
+ /* RESPONSIVE  */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .card { flex: 1 1 calc(50% - 20px); } /* دو ستونه */
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .sidebar { width: 100%; height: auto; flex-direction: row; justify-content: space-between; }
-  .sidebar nav { display: none; flex-direction: column; background: linear-gradient(135deg, var(--sidebar-bg-1), var(--sidebar-bg-2)); position: absolute; top: 60px; left: 0; width: 100%; }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .sidebar .profile img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sidebar nav {
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--sidebar-bg-1), var(--sidebar-bg-2));
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
   .sidebar nav.active { display: flex; }
+
   .hamburger { display: block; }
-  main { margin-left: 0; padding: 20px; }
-  footer { left: 0; position: relative; }
+
+  main { 
+    margin-left: 0; 
+    padding: 20px; 
+  }
+
+  .cards { flex-direction: column; }
+
+  .card { flex: 1 1 100%; }
+
+  footer {
+    position: relative;
+    left: 0;
+    margin-top: 20px;
+  }
 }

@@ -1,38 +1,48 @@
-
+// ==================== BIO TOGGLE ====================
 const bio = document.getElementById('bio');
 const toggleBio = document.getElementById('toggleBio');
-const fadeEl = bio.querySelector('.fade');
+const fadeEl = bio?.querySelector('.fade');
+
 function setBioClamp(expanded) {
+  if (!bio) return;
   bio.classList.toggle('expanded', expanded);
-  fadeEl.style.display = expanded ? 'none' : 'inline';
-  toggleBio.textContent = expanded ? 'Read less…' : 'Read more…';
+  if (fadeEl) fadeEl.style.display = expanded ? 'none' : 'inline';
+  if (toggleBio) toggleBio.textContent = expanded ? 'Read less…' : 'Read more…';
 }
-setBioClamp(false);
-toggleBio.addEventListener('click', () => setBioClamp(!bio.classList.contains('expanded')));
 
-const emailText = document.getElementById('email').textContent.trim();
+if (toggleBio) {
+  setBioClamp(false);
+  toggleBio.addEventListener('click', () => setBioClamp(!bio.classList.contains('expanded')));
+}
 
-document.getElementById('copyEmail').addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(emailText);
-    alert('Email copied!');
-  } catch {
-    alert("Can't access clipboard.");
-  }
-});
+// ==================== EMAIL COPY ====================
+const emailEl = document.getElementById('email');
+if (emailEl) {
+  const emailText = emailEl.textContent.trim();
+  document.getElementById('copyEmail')?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(emailText);
+      toast('Email copied!');
+    } catch {
+      toast("Can't access clipboard.");
+    }
+  });
+}
 
+// ==================== FOLLOW BUTTON ====================
 const btnFollow = document.getElementById('btnFollow');
 let following = false;
-btnFollow.addEventListener('click', () => {
+btnFollow?.addEventListener('click', () => {
   following = !following;
   btnFollow.classList.toggle('primary', following);
   btnFollow.textContent = following ? 'Following' : 'Follow';
   toast(following ? 'Followed' : 'Unfollowed');
 });
 
-document.getElementById('share').addEventListener('click', async () => {
+// ==================== SHARE ====================
+document.getElementById('share')?.addEventListener('click', async () => {
   const shareData = {
-    title: document.getElementById('name').textContent,
+    title: document.getElementById('name')?.textContent,
     text: 'Check this profile',
     url: window.location.href
   };
@@ -48,38 +58,72 @@ document.getElementById('share').addEventListener('click', async () => {
   }
 });
 
+// ==================== AVATAR ====================
 const avatarImg = document.getElementById('avatarImg');
 const avatarInitials = document.getElementById('avatarInitials');
 const avatarPath = './IMG_4208.JPG'; 
 
 (function setInitials() {
-  const name = document.getElementById('name').textContent.trim();
+  const name = document.getElementById('name')?.textContent.trim() || "AA";
   const initials = name.split(/\s+/).slice(0, 2).map(s => s[0] || '').join('').toUpperCase();
-  avatarInitials.textContent = initials || 'AA';
+  if (avatarInitials) avatarInitials.textContent = initials || 'AA';
 })();
 
-avatarImg.src = avatarPath;
-avatarImg.onload = () => {
-  avatarImg.style.display = 'block';
-  avatarInitials.style.display = 'none';
-};
-avatarImg.onerror = () => {
-  avatarImg.style.display = 'none';
-  avatarInitials.style.display = 'block';
-  console.warn('Avatar image not found or failed to load:', avatarPath);
-};
+if (avatarImg) {
+  avatarImg.src = avatarPath;
+  avatarImg.onload = () => {
+    avatarImg.style.display = 'block';
+    if (avatarInitials) avatarInitials.style.display = 'none';
+  };
+  avatarImg.onerror = () => {
+    avatarImg.style.display = 'none';
+    if (avatarInitials) avatarInitials.style.display = 'block';
+    console.warn('Avatar image not found or failed to load:', avatarPath);
+  };
+}
 
-// (Light/Dark Mode) 
-const themeToggle = document.getElementById('themeToggle');
+// ==================== THEME TOGGLE ====================
+const themeToggle = document.getElementById('theme-toggle'); // دکمه 🌙/☀️
 const body = document.body;
 
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  const isLightMode = body.classList.contains('light-mode');
-  themeToggle.textContent = isLightMode ? 'Dark' : 'Light';
-  toast(isLightMode ? 'Switched to Light Mode' : 'Switched to Dark Mode');
+// تغییر تم
+function toggleTheme() {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    themeToggle.textContent = "☀️";
+    localStorage.setItem("theme", "dark");
+    toast('Switched to Dark Mode');
+  } else {
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "light");
+    toast('Switched to Light Mode');
+  }
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme);
+}
+
+// اعمال تم ذخیره‌شده
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark-mode");
+    if (themeToggle) themeToggle.textContent = "☀️";
+  } else {
+    if (themeToggle) themeToggle.textContent = "🌙";
+  }
 });
 
+// ==================== HAMBURGER MENU ====================
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
+
+hamburger?.addEventListener("click", () => {
+  mobileMenu?.classList.toggle("active");
+});
+
+// ==================== TOAST FUNCTION ====================
 function toast(msg) {
   const el = Object.assign(document.createElement('div'), {
     textContent: msg
