@@ -205,15 +205,22 @@ footer .socials a {
     flex-direction: column;
     min-height: auto;
   }
-  
+
   .sidebar {
     width: 100%;
     height: auto;
     position: relative;
-    padding: 10px 15px;
-    flex-direction: row;
-    justify-content: space-between;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+  }
+
+  /* ردیف بالایی */
+  .topbar {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   .sidebar .profile {
@@ -222,9 +229,9 @@ footer .socials a {
   }
 
   .sidebar .profile img {
-    width: 55px;
-    height: 55px;
-    margin-right: 10px;
+    width: 45px;
+    height: 45px;
+    margin-right: 8px;
     border: 2px solid white;
   }
 
@@ -235,31 +242,29 @@ footer .socials a {
 
   .profile-info h2 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.1;
   }
 
   .theme-toggle {
-    font-size: 18px;
-    margin-top: 4px;
+    font-size: 16px;
+    margin-top: 2px;
     align-self: flex-start;
   }
 
   .hamburger { 
     display: block; 
-    font-size: 28px;
-    margin-left: auto;
+    font-size: 26px;
   }
 
   .sidebar nav {
     display: none;
     flex-direction: column;
     background: linear-gradient(135deg, var(--sidebar-bg-1), var(--sidebar-bg-2));
-    position: absolute;
-    top: 70px;
-    left: 0;
     width: 100%;
-    z-index: 1000;
-    padding: 10px 0;
+    padding: 8px 0;
+    margin-top: 8px;
+    border-radius: 6px;
   }
 
   .sidebar nav.active { display: flex; }
