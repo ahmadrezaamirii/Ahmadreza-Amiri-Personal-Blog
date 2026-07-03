@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Mobile menu ---------- */
   hamburger.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
+    const isOpen = mobileMenu.classList.toggle("active");
+    hamburger.setAttribute("aria-expanded", String(isOpen));
   });
 
   navLinks.forEach(link => {
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Only close if it's the mobile menu and active
       if (window.innerWidth <= 768 && mobileMenu.classList.contains("active")) {
         mobileMenu.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
       }
     });
   });
