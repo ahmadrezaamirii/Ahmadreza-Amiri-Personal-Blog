@@ -3,82 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmadreza Amiri - Personal Blog</title>
+  <title>Ahmadreza Amiri — Personal Blog</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <div class="progress-bar" id="progressBar"></div>
+
   <aside class="sidebar">
     <div class="topbar">
       <div class="profile">
         <img src="IMG_4208.JPG" alt="Ahmadreza Amiri's profile picture">
         <div class="profile-info">
           <h2>Ahmadreza Amiri</h2>
-          <button id="theme-toggle" class="theme-toggle">🌙</button>
+          <span class="role-tag">&lt;CS_student /&gt;</span>
         </div>
       </div>
-      <button class="hamburger" id="hamburger">☰</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
     </div>
-    <nav id="mobile-menu">
-      <a href="#">🏠 Home</a>
-      <a href="#about">👤 About Me</a>
-      <a href="#projects">💻 Projects</a>
-      <a href="#blogs">✍ Blogs</a>
+
+    <nav id="mobile-menu" class="activity-bar">
+      <a href="#home" class="nav-link" data-target="home"><i class="fa-solid fa-house"></i><span>home.jsx</span></a>
+      <a href="#about" class="nav-link" data-target="about"><i class="fa-solid fa-user"></i><span>about.md</span></a>
+      <a href="#projects" class="nav-link" data-target="projects"><i class="fa-solid fa-folder"></i><span>projects/</span></a>
+      <a href="#blogs" class="nav-link" data-target="blogs"><i class="fa-solid fa-code-commit"></i><span>blog.log</span></a>
     </nav>
+
+    <div class="sidebar-footer">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <span class="status-dot"></span>
+      <span class="status-text">online, building things</span>
+    </div>
   </aside>
 
   <main>
-    <section class="hero">
-      <h1>Welcome to My Personal Blog</h1>
-      <p>Hi, I’m Ahmadreza. A computer engineering student, programmer, and tech enthusiast. I share my journey, projects, and thoughts here.</p>
-      <a href="#about" class="btn">Read More</a>
+    <div class="tabbar" id="tabbar">
+      <button class="tab active" data-target="home"><i class="fa-solid fa-house"></i>home.jsx</button>
+      <button class="tab" data-target="about"><i class="fa-solid fa-user"></i>about.md</button>
+      <button class="tab" data-target="projects"><i class="fa-solid fa-folder"></i>projects/</button>
+      <button class="tab" data-target="blogs"><i class="fa-solid fa-code-commit"></i>blog.log</button>
+      <span class="tab-underline" id="tabUnderline"></span>
+    </div>
+
+    <section class="hero" id="home">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">ahmadreza@portfolio: ~</span>
+        </div>
+        <div class="terminal-body">
+          <p class="line"><span class="prompt">$</span> <span class="cmd">whoami</span></p>
+          <p class="output" id="typedOutput"></p>
+          <p class="line final"><span class="prompt">$</span><span class="cursor">▍</span></p>
+        </div>
+      </div>
+      <a href="#about" class="btn"><i class="fa-solid fa-terminal"></i> cat about.md</a>
     </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I was born in January 2004 and earned my high school diploma in Mathematics and Physics. 
-        Currently, I study Computer Engineering at Karaj Azad University. 
-        I started programming at 16, and since then, coding has been one of my biggest passions. 
-        I love exploring new technologies and building projects that challenge me to grow.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="cards">
-        <div class="card">🚀 <h3><a href="https://ahmadrezaamirii.github.io/Profile-Card/">Porfile card</a></h3> <p>A personal card to show me at a glance.</p></div>
-        <div class="card">🤖 <h3><a href="https://t.me/holoAdmin_Bot">Telegram Bot</a></h3> <p>A Python bot that automates sell.</p></div>
-        <div class="card">📊 <h3><a href="https://github.com/ahmadrezaamirii/Student-Dataset-Analysis-Clustering">Data Analysis</a></h3> <p>Exploring Python libraries for data science.</p></div>
+    <section id="about" class="reveal">
+      <h2><span class="comment-mark">//</span> About Me</h2>
+      <div class="about-grid">
+        <div class="bio-block reveal-child">
+          <span class="comment-open">/**</span>
+          <p>
+            I was born in January 2004 and earned my high school diploma in Mathematics and Physics.
+            Currently, I study Computer Engineering at Karaj Azad University.
+            I started programming at 16, and since then, coding has been one of my biggest passions.
+            I love exploring new technologies and building projects that challenge me to grow.
+          </p>
+          <span class="comment-close">*/</span>
+        </div>
+        <ul class="specs reveal-child">
+          <li><span class="key">born</span><span class="val">Jan&nbsp;2004</span></li>
+          <li><span class="key">diploma</span><span class="val">Math &amp; Physics</span></li>
+          <li><span class="key">university</span><span class="val">Karaj Azad University</span></li>
+          <li><span class="key">major</span><span class="val">Computer Engineering</span></li>
+          <li><span class="key">coding_since</span><span class="val">age 16</span></li>
+        </ul>
       </div>
     </section>
 
-    <section id="blogs">
-      <h2>Blogs</h2>
-      <ul>
-        <li><a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-journey-back-in-high-school-i-first-activity-7365732985184092160-7mpL?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic">🌍 My journey into programming</a></li>
-        <li><a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-first-bot-im-excited-to-share-that-activity-7365733307390509057-2in8?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic">💡 How I built my first Telegram bot</a></li>
-        <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7367639589215174656/">📊 My data minig class project</a></li>
-        <li><a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_learning-every-day-i-try-to-learn-something-activity-7365733375149535232-sTFC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic">📘 Tips for learning computer science</a></li>
+    <section id="projects" class="reveal">
+      <h2><span class="comment-mark">//</span> Projects</h2>
+      <div class="cards">
+        <a class="card reveal-child" href="https://ahmadrezaamirii.github.io/Profile-Card/" target="_blank" style="--accent: var(--accent-teal)">
+          <div class="card-top"><span class="lang-dot"></span><span class="file-name">profile-card.jsx</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          <h3>Profile Card</h3>
+          <p>A personal card to show me at a glance.</p>
+        </a>
+        <a class="card reveal-child" href="https://t.me/holoAdmin_Bot" target="_blank" style="--accent: var(--accent-amber)">
+          <div class="card-top"><span class="lang-dot"></span><span class="file-name">telegram_bot.py</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          <h3>Telegram Bot</h3>
+          <p>A Python bot that automates selling.</p>
+        </a>
+        <a class="card reveal-child" href="https://github.com/ahmadrezaamirii/Student-Dataset-Analysis-Clustering" target="_blank" style="--accent: var(--accent-coral)">
+          <div class="card-top"><span class="lang-dot"></span><span class="file-name">data_analysis.ipynb</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          <h3>Data Analysis</h3>
+          <p>Exploring Python libraries for data science.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="blogs" class="reveal">
+      <h2><span class="comment-mark">//</span> Blog Log</h2>
+      <ul class="git-log">
+        <li class="reveal-child">
+          <span class="commit-hash">a3f19c2</span>
+          <a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-journey-back-in-high-school-i-first-activity-7365732985184092160-7mpL?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic" target="_blank">My journey into programming</a>
+          <span class="ref-tag">origin/linkedin</span>
+        </li>
+        <li class="reveal-child">
+          <span class="commit-hash">7d82e0b</span>
+          <a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-first-bot-im-excited-to-share-that-activity-7365733307390509057-2in8?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic" target="_blank">How I built my first Telegram bot</a>
+          <span class="ref-tag">origin/linkedin</span>
+        </li>
+        <li class="reveal-child">
+          <span class="commit-hash">f16b4aa</span>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7367639589215174656/" target="_blank">My data mining class project</a>
+          <span class="ref-tag">origin/linkedin</span>
+        </li>
+        <li class="reveal-child">
+          <span class="commit-hash">9c05e71</span>
+          <a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_learning-every-day-i-try-to-learn-something-activity-7365733375149535232-sTFC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic" target="_blank">Tips for learning computer science</a>
+          <span class="ref-tag">origin/linkedin</span>
+        </li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 · Made by Ahmadreza Amiri</p>
+    <p class="prompt-line"><span class="prompt">$</span> whoami --contact</p>
     <div class="socials">
-      <a href="https://github.com/ahmadrezaamirii" target="_blank">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="https://linkedin.com/in/ahmadrezaamirii" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="mailto:ahmadreza.amiri@gmail.com" target="_blank">
-        <i class="fas fa-envelope"></i> Email
-      </a>
+      <a href="https://github.com/ahmadrezaamirii" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/ahmadrezaamirii" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:ahmadreza.amiri@gmail.com"><i class="fas fa-envelope"></i> Email</a>
     </div>
+    <p class="copyright">© 2025 · Made by Ahmadreza Amiri</p>
   </footer>
 
   <script src="script.js"></script>
