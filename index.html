@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmadreza Amiri — Personal Blog</title>
+  <title>Ahmadreza Amiri — Cybersecurity & Network Blog</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -14,20 +14,73 @@
   <aside class="sidebar">
     <div class="topbar">
       <div class="profile">
-        <img src="IMG_4208.JPG" alt="Ahmadreza Amiri's profile picture">
+        <img src="./IMG_4208.JPG" alt="Ahmadreza Amiri's profile picture" loading="eager" decoding="async">
         <div class="profile-info">
           <h2>Ahmadreza Amiri</h2>
-          <span class="role-tag">&lt;CS_student /&gt;</span>
+          <span class="role-tag">&lt;cybersec_network /&gt;</span>
         </div>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
     </div>
 
-    <nav id="mobile-menu" class="activity-bar">
-      <a href="#home" class="nav-link" data-target="home"><i class="fa-solid fa-house"></i><span>home.jsx</span></a>
-      <a href="#about" class="nav-link" data-target="about"><i class="fa-solid fa-user"></i><span>about.md</span></a>
-      <a href="#projects" class="nav-link" data-target="projects"><i class="fa-solid fa-folder"></i><span>projects/</span></a>
-      <a href="#blogs" class="nav-link" data-target="blogs"><i class="fa-solid fa-code-commit"></i><span>blog.log</span></a>
+    <div class="desktop-profile-card">
+      <div class="avatar-shell">
+        <img src="./IMG_4208.JPG" alt="Ahmadreza Amiri's profile picture" loading="eager" decoding="async">
+      </div>
+      <div class="profile-info">
+        <h2>Ahmadreza Amiri</h2>
+        <span class="role-tag">&lt;cybersec_network /&gt;</span>
+      </div>
+      <p class="profile-bio">Computer Engineering student focused on cybersecurity, networking, automation, and secure systems.</p>
+      <div class="signal-card">
+        <span class="signal-line"></span>
+        <div>
+          <span class="signal-label">current_focus</span>
+          <strong>Network Security</strong>
+        </div>
+      </div>
+      <div class="profile-stats" aria-label="Profile highlights">
+        <span><strong>16+</strong><small>coding age</small></span>
+        <span><strong>Net</strong><small>security</small></span>
+        <span><strong>Py</strong><small>automation</small></span>
+      </div>
+    </div>
+
+    <nav id="mobile-menu" class="sidebar-links">
+      <div class="nav-group">
+        <a href="#home" class="nav-link" data-target="home"><i class="fa-solid fa-house"></i><span>home.jsx</span></a>
+        <a href="#about" class="nav-link" data-target="about"><i class="fa-solid fa-user"></i><span>about.md</span></a>
+        <a href="#projects" class="nav-link" data-target="projects"><i class="fa-solid fa-folder"></i><span>projects/</span></a>
+        <a href="#blogs" class="nav-link" data-target="blogs"><i class="fa-solid fa-code-commit"></i><span>blog.log</span></a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-title">socials/</span>
+        <a href="https://github.com/ahmadrezaamirii" target="_blank" class="nav-link"><i class="fab fa-github"></i><span>github.com</span></a>
+        <a href="https://linkedin.com/in/ahmadrezaamirii" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i><span>linkedin.com</span></a>
+        <a href="mailto:ahmadreza.amiri@gmail.com" class="nav-link"><i class="fas fa-envelope"></i><span>email.me</span></a>
+        <a href="https://t.me/ahmadrezaamirii" target="_blank" class="nav-link"><i class="fab fa-telegram"></i><span>telegram.me</span></a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-title">toolkit/</span>
+        <div class="skill-item">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Cyber Security</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Networking</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Linux & Automation</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 78%;"></div></div>
+        </div>
+      </div>
     </nav>
 
     <div class="sidebar-footer">
@@ -68,12 +121,7 @@
       <div class="about-grid">
         <div class="bio-block reveal-child">
           <span class="comment-open">/**</span>
-          <p>
-            I was born in January 2004 and earned my high school diploma in Mathematics and Physics.
-            Currently, I study Computer Engineering at Karaj Azad University.
-            I started programming at 16, and since then, coding has been one of my biggest passions.
-            I love exploring new technologies and building projects that challenge me to grow.
-          </p>
+          <span id="aboutMeTypedText" class="typing-text" aria-live="polite"></span>
           <span class="comment-close">*/</span>
         </div>
         <ul class="specs reveal-child">
@@ -81,6 +129,7 @@
           <li><span class="key">diploma</span><span class="val">Math &amp; Physics</span></li>
           <li><span class="key">university</span><span class="val">Karaj Azad University</span></li>
           <li><span class="key">major</span><span class="val">Computer Engineering</span></li>
+          <li><span class="key">focus</span><span class="val">Cybersecurity &amp; Networks</span></li>
           <li><span class="key">coding_since</span><span class="val">age 16</span></li>
         </ul>
       </div>

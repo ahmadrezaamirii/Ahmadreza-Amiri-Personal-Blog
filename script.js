@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenu = document.querySelector(".sidebar-links");
   const themeToggle = document.getElementById("theme-toggle");
   const themeIcon = themeToggle.querySelector("i");
   const progressBar = document.getElementById("progressBar");
@@ -15,7 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   navLinks.forEach(link => {
-    link.addEventListener("click", () => mobileMenu.classList.remove("active"));
+    link.addEventListener("click", () => {
+      // Only close if it's the mobile menu and active
+      if (window.innerWidth <= 768 && mobileMenu.classList.contains("active")) {
+        mobileMenu.classList.remove("active");
+      }
+    });
   });
 
   /* ---------- Theme toggle ---------- */
@@ -45,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Typewriter effect ---------- */
   const typedOutput = document.getElementById("typedOutput");
   const lines = [
-    "Ahmadreza Amiri — Computer Engineering Student",
-    "Karaj Azad University · building things since age 16"
+    "Ahmadreza Amiri — Cybersecurity & Network Enthusiast",
+    "Computer Engineering · Python automation · secure systems"
   ];
 
   const typeLine = (text, el, onDone) => {
@@ -81,11 +86,68 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   runTypewriter();
 
-  /* ---------- Scroll-triggered reveals ---------- */
+
+  const aboutMeTypedText = document.getElementById("aboutMeTypedText");
+  const aboutMeLines = [
+    `I was born in January 2004 and earned my high school diploma in Mathematics and Physics.
+Currently, I study Computer Engineering at Karaj Azad University.
+I started programming at 16, and since then, coding has been one of my biggest passions.`,
+    `Today my main path is cybersecurity and computer networks.
+I enjoy understanding how systems communicate, where they break, and how to make them safer through automation, monitoring, and careful engineering.`,
+    `I like projects that feel practical: Python tools, Telegram bots, network-focused experiments, data analysis, and anything that teaches me how real systems behave under pressure.`
+  ];
+  let aboutTypingStarted = false;
+
+  const runLoopingTypewriter = (el, texts) => {
+    if (!el) return;
+    if (reduceMotion) {
+      el.textContent = texts.join("\n\n");
+      return;
+    }
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const step = () => {
+      const currentText = texts[textIndex];
+      el.textContent = currentText.slice(0, charIndex);
+
+      if (!deleting && charIndex < currentText.length) {
+        charIndex++;
+        setTimeout(step, 24);
+        return;
+      }
+
+      if (!deleting && charIndex === currentText.length) {
+        deleting = true;
+        setTimeout(step, 1800);
+        return;
+      }
+
+      if (deleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(step, 10);
+        return;
+      }
+
+      deleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+      setTimeout(step, 350);
+    };
+
+    step();
+  };
+
+  // Modify the revealObserver to trigger the aboutMe typing effect
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("in-view");
+        if (entry.target.id === "about" && !aboutTypingStarted) {
+          aboutTypingStarted = true;
+          runLoopingTypewriter(aboutMeTypedText, aboutMeLines);
+        }
         revealObserver.unobserve(entry.target);
       }
     });
