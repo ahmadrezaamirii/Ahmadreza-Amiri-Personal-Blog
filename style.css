@@ -698,6 +698,71 @@ h2 {
   flex-shrink: 0;
 }
 
+/* Personal blog */
+.personal-blog-intro {
+  margin: -12px 0 18px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.personal-posts { display: grid; gap: 10px; }
+
+.personal-post {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.personal-post:hover { border-color: var(--accent-teal); }
+.personal-post:has(.personal-post-toggle[aria-expanded="true"]) { border-color: rgba(0, 240, 181, 0.55); }
+
+.personal-post-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.personal-post-meta,
+.personal-post-date {
+  color: var(--text-dim);
+  font: 0.72rem 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+
+.personal-post-meta { color: var(--accent-amber); }
+.personal-post-title { font-size: 0.96rem; font-weight: 600; }
+
+.personal-post-toggle i {
+  color: var(--accent-teal);
+  font-size: 0.78rem;
+  transition: transform 0.25s ease;
+}
+
+.personal-post-toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+
+.personal-post-content {
+  padding: 0 18px 18px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.personal-post-content[hidden] { display: none; }
+.personal-post-content p { margin: 0; }
+.personal-post-content p + p { margin-top: 12px; }
+.personal-post-error { margin: 0; color: var(--accent-coral); font-size: 0.9rem; }
+
 /* Footer */
 footer {
   background: var(--panel);
@@ -868,4 +933,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-teal); o
   footer { margin-left: 0; }
 
   .terminal-body { font-size: 0.85rem; }
+
+  .personal-post-toggle {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+  }
+
+  .personal-post-meta { grid-column: 1 / 2; }
+  .personal-post-title { grid-column: 1 / 2; grid-row: 2; }
+  .personal-post-date { grid-column: 2; grid-row: 1; }
+  .personal-post-toggle i { grid-column: 2; grid-row: 2; justify-self: end; }
 }

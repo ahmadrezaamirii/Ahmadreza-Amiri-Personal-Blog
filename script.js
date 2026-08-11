@@ -49,6 +49,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ---------- Personal blog posts ---------- */
+  const personalPosts = document.getElementById("personal-posts");
+  const setupPersonalPostToggles = () => {
+    personalPosts.querySelectorAll(".personal-post-toggle").forEach(toggle => {
+      toggle.addEventListener("click", () => {
+        const content = document.getElementById(toggle.getAttribute("aria-controls"));
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+        toggle.setAttribute("aria-expanded", String(!isExpanded));
+        content.hidden = isExpanded;
+      });
+    });
+  };
+
+  fetch("personal-posts.html")
+    .then(response => {
+      if (!response.ok) throw new Error("Could not load personal posts");
+      return response.text();
+    })
+    .then(posts => {
+      personalPosts.innerHTML = posts;
+      setupPersonalPostToggles();
+    })
+    .catch(() => {
+      personalPosts.innerHTML = "<p class=\"personal-post-error\">Personal posts could not be loaded.</p>";
+    });
+
   /* ---------- Typewriter effect ---------- */
   const typedOutput = document.getElementById("typedOutput");
   const lines = [
