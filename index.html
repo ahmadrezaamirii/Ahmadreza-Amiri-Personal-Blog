@@ -1,211 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmadreza Amiri — Cybersecurity & Network Blog</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ahmadreza Amiri — Computer Engineering student focused on cybersecurity, networks, and automation.">
+<meta name="theme-color" content="#06090d">
+<title>Ahmadreza Amiri — Cybersecurity &amp; Networks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-
-  <aside class="sidebar">
-    <div class="topbar">
-      <div class="profile">
-        <img src="./IMG_4208.JPG" alt="Ahmadreza Amiri's profile picture" loading="eager" decoding="async">
-        <div class="profile-info">
-          <h2>Ahmadreza Amiri</h2>
-          <span class="role-tag">&lt;cybersec_network /&gt;</span>
-        </div>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    </div>
-
-    <div class="desktop-profile-card">
-      <div class="avatar-shell">
-        <img src="./IMG_4208.JPG" alt="Ahmadreza Amiri's profile picture" loading="eager" decoding="async">
-      </div>
-      <div class="profile-info">
-        <h2>Ahmadreza Amiri</h2>
-        <span class="role-tag">&lt;cybersec_network /&gt;</span>
-      </div>
-      <p class="profile-bio">Computer Engineering student focused on cybersecurity, networking, automation, and secure systems.</p>
-      <div class="signal-card">
-        <span class="signal-line"></span>
-        <div>
-          <span class="signal-label">current_focus</span>
-          <strong>Network Security</strong>
-        </div>
-      </div>
-      <div class="profile-stats" aria-label="Profile highlights">
-        <span><strong>16+</strong><small>coding age</small></span>
-        <span><strong>Net</strong><small>security</small></span>
-        <span><strong>Py</strong><small>automation</small></span>
-      </div>
-    </div>
-
-    <nav id="mobile-menu" class="sidebar-links">
-      <div class="nav-group">
-        <a href="#home" class="nav-link" data-target="home"><i class="fa-solid fa-house"></i><span>HOME</span></a>
-        <a href="#about" class="nav-link" data-target="about"><i class="fa-solid fa-user"></i><span>ABOUT ME</span></a>
-        <a href="#projects" class="nav-link" data-target="projects"><i class="fa-solid fa-folder"></i><span>PROJECTS/</span></a>
-        <a href="#blogs" class="nav-link" data-target="blogs"><i class="fa-solid fa-code-commit"></i><span>BLOGS</span></a>
-        <a href="#personal-blog" class="nav-link" data-target="personal-blog"><i class="fa-solid fa-book-open"></i><span>PERSONAL BLOG</span></a>
-      </div>
-
-      <div class="nav-group">
-        <span class="nav-group-title">socials/</span>
-        <a href="https://github.com/ahmadrezaamirii" target="_blank" class="nav-link"><i class="fab fa-github"></i><span>GitHub</span></a>
-        <a href="https://linkedin.com/in/ahmadrezaamirii" target="_blank" class="nav-link"><i class="fab fa-linkedin"></i><span>linkedin</span></a>
-        <a href="mailto:ahmadreza.amiri@gmail.com" class="nav-link"><i class="fas fa-envelope"></i><span>EMAIL</span></a>
-        <a href="https://t.me/ahmadreza_amirii" target="_blank" class="nav-link"><i class="fab fa-telegram"></i><span>TELEGRAM</span></a>
-      </div>
-
-      <div class="nav-group">
-        <span class="nav-group-title">toolkit/</span>
-        <div class="skill-item">
-          <span class="skill-name">Python</span>
-          <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Cyber Security</span>
-          <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Networking</span>
-          <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Linux & Automation</span>
-          <div class="skill-bar"><div class="skill-progress" style="width: 78%;"></div></div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="sidebar-footer">
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-      <span class="status-dot"></span>
-      <span class="status-text">online, building things</span>
-    </div>
-  </aside>
-
-  <main>
-    <div class="tabbar" id="tabbar">
-      <button class="tab active" data-target="home"><i class="fa-solid fa-house"></i>home.jsx</button>
-      <button class="tab" data-target="about"><i class="fa-solid fa-user"></i>about.md</button>
-      <button class="tab" data-target="projects"><i class="fa-solid fa-folder"></i>projects/</button>
-      <button class="tab" data-target="blogs"><i class="fa-solid fa-code-commit"></i>blog.log</button>
-      <button class="tab" data-target="personal-blog"><i class="fa-solid fa-book-open"></i>personal.md</button>
-      <span class="tab-underline" id="tabUnderline"></span>
-    </div>
-
-    <section class="hero" id="home">
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-          <span class="terminal-title">ahmadreza@portfolio: ~</span>
-        </div>
-        <div class="terminal-body">
-          <p class="line"><span class="prompt">$</span> <span class="cmd">who am I</span></p>
-          <p class="output" id="typedOutput"></p>
-          <p class="line final"><span class="prompt">$</span><span class="cursor">▍</span></p>
-        </div>
-      </div>
-      <a href="#about" class="btn"><i class="fa-solid fa-terminal"></i> cat about.md</a>
-    </section>
-
-    <section id="about" class="reveal">
-      <h2><span class="comment-mark">//</span> About Me</h2>
-      <div class="about-grid">
-        <div class="bio-block reveal-child">
-          <span class="comment-open">/**</span>
-          <span id="aboutMeTypedText" class="typing-text" aria-live="polite"></span>
-          <span class="comment-close">*/</span>
-        </div>
-        <ul class="specs reveal-child">
-          <li><span class="key">born</span><span class="val">Jan&nbsp;2004</span></li>
-          <li><span class="key">diploma</span><span class="val">Math &amp; Physics</span></li>
-          <li><span class="key">university</span><span class="val">Karaj Azad University</span></li>
-          <li><span class="key">major</span><span class="val">Computer Engineering</span></li>
-          <li><span class="key">focus</span><span class="val">Cybersecurity &amp; Networks</span></li>
-          <li><span class="key">coding_since</span><span class="val">age 16</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="projects" class="reveal">
-      <h2><span class="comment-mark">//</span> Projects</h2>
-      <div class="cards">
-        <a class="card reveal-child" href="https://ahmadrezaamirii.github.io/Profile-Card/" target="_blank" style="--accent: var(--accent-teal)">
-          <div class="card-top"><span class="lang-dot"></span><span class="file-name">profile-card.jsx</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <h3>Profile Card</h3>
-          <p>A personal card to show me at a glance.</p>
-        </a>
-        <a class="card reveal-child" href="https://t.me/holoAdmin_Bot" target="_blank" style="--accent: var(--accent-amber)">
-          <div class="card-top"><span class="lang-dot"></span><span class="file-name">telegram_bot.py</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <h3>Telegram Bot</h3>
-          <p>A Python bot that automates selling.</p>
-        </a>
-        <a class="card reveal-child" href="https://github.com/ahmadrezaamirii/Student-Dataset-Analysis-Clustering" target="_blank" style="--accent: var(--accent-coral)">
-          <div class="card-top"><span class="lang-dot"></span><span class="file-name">data_analysis.ipynb</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <h3>Data Analysis</h3>
-          <p>Exploring Python libraries for data science.</p>
-        </a>
-      </div>
-    </section>
-
-    <section id="blogs" class="reveal">
-      <h2><span class="comment-mark">//</span> Blog Log</h2>
-      <ul class="git-log">
-        <li class="reveal-child">
-          <span class="commit-hash">7d82e0b</span>
-          <a href="https://lnkd.in/p/esVNZ4xq" target="_blank">Start my first project in cybersecurity</a>
-          <span class="ref-tag">origin/linkedin</span>
-        </li>
-        <li class="reveal-child">
-          <span class="commit-hash">a3f19c2</span>
-          <a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-journey-back-in-high-school-i-first-activity-7365732985184092160-7mpL?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic" target="_blank">My journey into programming</a>
-          <span class="ref-tag">origin/linkedin</span>
-        </li>
-        <li class="reveal-child">
-          <span class="commit-hash">7d82e0b</span>
-          <a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-first-bot-im-excited-to-share-that-activity-7365733307390509057-2in8?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic" target="_blank">How I built my first Telegram bot</a>
-          <span class="ref-tag">origin/linkedin</span>
-        </li>
-        <li class="reveal-child">
-          <span class="commit-hash">f16b4aa</span>
-          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7367639589215174656/" target="_blank">My data mining class project</a>
-          <span class="ref-tag">origin/linkedin</span>
-        </li>
-        <li class="reveal-child">
-          <span class="commit-hash">9c05e71</span>
-          <a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_learning-every-day-i-try-to-learn-something-activity-7365733375149535232-sTFC?utm_source=share&utm_medium=member_desktop&rcm=ACoAADGH9tEBL-0ZEUBPKVC0msGuXvq5p8zY0Ic" target="_blank">Tips for learning computer science</a>
-          <span class="ref-tag">origin/linkedin</span>
-        </li>
-      </ul>
-    </section>
-    <section id="personal-blog" class="reveal">
-      <h2><span class="comment-mark">//</span> Personal Blog</h2>
-      <p class="personal-blog-intro reveal-child">Short notes, ideas, and lessons from my journey.</p>
-
-      <div class="personal-posts" id="personal-posts" aria-live="polite"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p class="prompt-line"><span class="prompt">$</span> whoami --contact</p>
-    <div class="socials">
-      <a href="https://github.com/ahmadrezaamirii" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://linkedin.com/in/ahmadrezaamirii" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="mailto:ahmadreza.amiri@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-    </div>
-    <p class="copyright">© 2025 · Made by Ahmadreza Amiri</p>
-  </footer>
-
-  <script src="script.js"></script>
+<div class="noise" aria-hidden="true">
+</div>
+<div class="cursor-dot" aria-hidden="true">
+</div>
+<div class="cursor-ring" aria-hidden="true">
+</div>
+<canvas id="webgl-canvas" aria-hidden="true">
+</canvas>
+<div class="scroll-progress" id="progressBar">
+</div>
+<header class="site-header">
+<a class="brand magnetic" href="#home" aria-label="Ahmadreza Amiri home">
+<span class="brand-mark">AA</span>
+<span>AHMADREZA<span class="brand-muted">.DEV</span>
+</span>
+</a>
+<nav class="desktop-nav" aria-label="Primary navigation">
+<a href="#about">About</a>
+<a href="#projects">Selected work</a>
+<a href="#blogs">Writing</a>
+</nav>
+<a class="header-contact magnetic" href="mailto:ahmadreza.amiri@gmail.com">
+<span>Let's talk</span>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</a>
+<button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+</button>
+</header>
+<div class="mobile-menu" aria-hidden="true">
+<a href="#about">About</a>
+<a href="#projects">Selected work</a>
+<a href="#blogs">Writing</a>
+<a href="mailto:ahmadreza.amiri@gmail.com">Contact</a>
+</div>
+<main>
+<section class="hero" id="home">
+<div class="hero-copy">
+<p class="eyebrow appear"><span class="status-pulse"></span> Available for meaningful work · 2026</p>
+<div class="vscode-window appear" aria-label="Code editor introduction">
+<div class="editor-titlebar"><span class="window-controls"><i></i><i></i><i></i></span><span>ahmadreza.profile.ts — portfolio</span></div>
+<div class="editor-body"><aside class="editor-rail" aria-hidden="true"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-code-branch"></i><i class="fa-solid fa-cube"></i></aside><div class="editor-content"><div class="editor-tab"><i class="fa-brands fa-js"></i> profile.ts <span>×</span></div><pre><code><span class="code-key">const</span> <span class="code-name">ahmadreza</span> = {
+  <span class="code-prop">focus</span>: <span class="code-string">'cybersecurity &amp; networks'</span>,
+  <span class="code-prop">building</span>: <span class="code-string">'secure systems'</span>,
+  <span class="code-prop">mission</span>: <span class="code-string">'secure the unseen'</span>,
+  <span class="code-prop">status</span>: <span class="code-string code-mint">'open to learn'</span>
+}<span class="code-cursor">▍</span></code></pre></div></div>
+</div>
+<div class="hero-actions appear">
+<a href="#projects" class="button button-primary magnetic">Explore work <i class="fa-solid fa-arrow-down">
+</i>
+</a>
+<a href="#about" class="text-link">More about me <span>↗</span>
+</a>
+</div>
+</div>
+<div class="hero-visual" data-tilt>
+<div class="traffic-header"><span><i class="fa-solid fa-circle"></i> LIVE TRAFFIC</span><span>PACKET INSPECTOR</span></div>
+<div class="traffic-stage" aria-hidden="true">
+<svg class="traffic-routes" viewBox="0 0 500 360" preserveAspectRatio="none"><path d="M40 65 C150 55 170 200 250 180 S350 35 460 70"/><path d="M30 285 C150 295 175 105 250 180 S360 305 470 270"/><path d="M70 160 C155 160 180 180 250 180 S360 180 435 180"/></svg>
+<span class="packet packet-one"></span><span class="packet packet-two"></span><span class="packet packet-three"></span><span class="packet packet-four"></span>
+<span class="endpoint endpoint-left">VPN</span><span class="endpoint endpoint-top">DNS</span><span class="endpoint endpoint-bottom">SSH</span><span class="endpoint endpoint-right">API</span>
+<span class="security-core"><i class="fa-solid fa-shield-halved"></i><small>PROTECTED</small></span><span class="scan-beam"></span>
+</div>
+<div class="traffic-footer"><span>THREATS <strong>0</strong></span><span>UPTIME <strong>99.98%</strong></span><span>LATENCY <strong>12ms</strong></span></div>
+</div>
+<a class="scroll-cue" href="#about">
+<span>SCROLL TO EXPLORE</span>
+<i class="fa-solid fa-arrow-down-long">
+</i>
+</a>
+</section>
+<section class="about section" id="about">
+<div class="section-heading reveal">
+<p class="eyebrow">01 — PROFILE</p>
+<h2>A curious mind for <em>complex systems.</em>
+</h2>
+</div>
+<div class="about-layout">
+<article class="manifesto reveal">
+<span class="card-index">/ 001</span>
+<p class="profile-typewriter" aria-live="polite"><span id="profileTypewriter"></span></p>
+<p class="profile-context">A rotating snapshot of the way I think, learn, and build.</p>
+<a class="text-link magnetic" href="mailto:ahmadreza.amiri@gmail.com">Start a conversation <span>↗</span>
+</a>
+</article>
+<dl class="profile-data reveal">
+<div>
+<dt>Focus</dt>
+<dd>Cybersecurity<br>&amp; networks</dd>
+</div>
+<div>
+<dt>Toolbox</dt>
+<dd>Python · Linux<br>Automation</dd>
+</div>
+<div>
+<dt>Based in</dt>
+<dd>Tehran, Iran</dd>
+</div>
+<div>
+<dt>Currently</dt>
+<dd>Learning by<br>building</dd>
+</div>
+</dl>
+</div>
+</section>
+<section class="projects section" id="projects">
+<div class="section-heading section-heading-row reveal">
+<div>
+<p class="eyebrow">02 — SELECTED WORK</p>
+<h2>Small experiments.<br>
+<em>Real intent.</em>
+</h2>
+</div>
+<p class="section-note">A selection of things I’ve designed, automated, and explored.</p>
+</div>
+<div class="project-grid">
+<a class="project-card feature-card reveal" href="https://ahmadrezaamirii.github.io/Profile-Card/" target="_blank" rel="noreferrer" data-tilt>
+<span class="project-no">01</span>
+<div class="project-graphic profile-graphic">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+<div class="project-footer">
+<div>
+<p>Frontend experiment</p>
+<h3>Profile Card</h3>
+</div>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</div>
+</a>
+<a class="project-card reveal" href="https://t.me/holoAdmin_Bot" target="_blank" rel="noreferrer" data-tilt>
+<span class="project-no">02</span>
+<div class="project-graphic bot-graphic">
+<i class="fa-solid fa-robot">
+</i>
+<span class="bot-wave">
+</span>
+</div>
+<div class="project-footer">
+<div>
+<p>Python automation</p>
+<h3>Telegram Bot</h3>
+</div>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</div>
+</a>
+<a class="project-card reveal" href="https://github.com/ahmadrezaamirii/Student-Dataset-Analysis-Clustering" target="_blank" rel="noreferrer" data-tilt>
+<span class="project-no">03</span>
+<div class="project-graphic data-graphic">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+<div class="project-footer">
+<div>
+<p>Data exploration</p>
+<h3>Data Analysis</h3>
+</div>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</div>
+</a>
+</div>
+</section>
+<section class="blogs section" id="blogs">
+<div class="section-heading reveal">
+<p class="eyebrow">03 — FIELD NOTES</p>
+<h2>Learning in <em>public.</em>
+</h2>
+</div>
+<div class="writing-list reveal">
+<a href="https://lnkd.in/p/esVNZ4xq" target="_blank" rel="noreferrer">
+<span class="writing-number">01</span>
+<span>Start my first project in cybersecurity</span>
+<span class="writing-meta">LinkedIn · 2025</span>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</a>
+<a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-journey-back-in-high-school-i-first-activity-7365732985184092160-7mpL" target="_blank" rel="noreferrer">
+<span class="writing-number">02</span>
+<span>My journey into programming</span>
+<span class="writing-meta">LinkedIn · 2025</span>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</a>
+<a href="https://www.linkedin.com/posts/ahmadreza-amiri-46936b1b2_my-first-bot-im-excited-to-share-that-activity-7365733307390509057-2in8" target="_blank" rel="noreferrer">
+<span class="writing-number">03</span>
+<span>How I built my first Telegram bot</span>
+<span class="writing-meta">LinkedIn · 2025</span>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</a>
+<a href="https://www.linkedin.com/feed/update/urn:li:activity:7367639589215174656/" target="_blank" rel="noreferrer">
+<span class="writing-number">04</span>
+<span>My data mining class project</span>
+<span class="writing-meta">LinkedIn · 2025</span>
+<i class="fa-solid fa-arrow-up-right-from-square">
+</i>
+</a>
+</div>
+</section>
+</main>
+<footer>
+<div>
+<p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+<a class="footer-email magnetic" href="mailto:ahmadreza.amiri@gmail.com">Let’s connect<span>.</span>
+</a>
+</div>
+<div class="footer-bottom">
+<p>© <span id="year">
+</span> Ahmadreza Amiri</p>
+<div>
+<a href="https://github.com/ahmadrezaamirii" target="_blank" rel="noreferrer">GitHub</a>
+<a href="https://linkedin.com/in/ahmadrezaamirii" target="_blank" rel="noreferrer">LinkedIn</a>
+<a href="https://t.me/ahmadreza_amirii" target="_blank" rel="noreferrer">Telegram</a>
+</div>
+</div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+</script>
+<script src="script.js">
+</script>
 </body>
 </html>
